@@ -1,9 +1,10 @@
 <template>
-  <p>Authors Landing Page</p>
+  <h1>Login</h1>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'auth'
+  title: 'Login',
+  layout: 'auth'
 })
 </script>
