@@ -1,24 +1,21 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+
 export default defineNuxtConfig({
-  app: {
-    head: {
-      link: [
-        // Include Google Fonts Material Icons CDN
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0' },
-      ],
-    },
-  },
-  devtools: { enabled: true },
-  css: [
-    'vuetify/lib/styles/main.sass',
-  ],
   build: {
     transpile: ['vuetify'],
   },
+  modules: [
+    (_options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) => {
+        config.plugins?.push(vuetify({ autoImport: true }))
+      })
+    }
+  ],
   vite: {
-    define: {
-      'process.env.DEBUG': false,
-    },
+    vue: {
+      template: {
+        transformAssetUrls,
+      }
+    }
   },
 })

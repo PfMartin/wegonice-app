@@ -1,7 +1,7 @@
 <template>
     <p>Welcome to WeGoNice</p>
     <v-btn>Hello</v-btn>
-    <span class="material-icons">face</span>
+    <v-icon icon="mdi-checkbox-marked-circle" end></v-icon>
 </template>
 
 <script setup lang="ts">
