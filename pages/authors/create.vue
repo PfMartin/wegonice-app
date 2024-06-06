@@ -5,6 +5,6 @@
 <script setup lang="ts">
 definePageMeta({
   title: 'Create new author',
-  middleware: 'auth'
+  middleware: 'auth',
 })
 </script>

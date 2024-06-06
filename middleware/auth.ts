@@ -5,7 +5,6 @@ export default defineNuxtRouteMiddleware((_to, _from) => {
   }
 
   console.warn('Authenticated')
-
 })
 
 const isAuthenticated = (): boolean => {

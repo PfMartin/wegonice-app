@@ -3,11 +3,10 @@
     <header>
       <nav>
         <li><NuxtLink to="/home">Home</NuxtLink></li>
-      </nav>      
+      </nav>
     </header>
     <slot />
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>

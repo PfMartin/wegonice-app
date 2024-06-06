@@ -6,10 +6,9 @@
 
 <script setup lang="ts">
 definePageMeta({
-  title: "Home",
+  title: 'Home',
   middleware: 'auth',
 })
 </script>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

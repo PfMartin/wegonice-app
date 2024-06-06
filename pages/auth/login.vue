@@ -5,6 +5,6 @@
 <script setup lang="ts">
 definePageMeta({
   title: 'Login',
-  layout: 'auth'
+  layout: 'auth',
 })
 </script>

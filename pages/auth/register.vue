@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-  definePageMeta({
-    title: 'Register',
-    layout: 'auth'
-  })
+definePageMeta({
+  title: 'Register',
+  layout: 'auth',
+})
 </script>
