@@ -15,16 +15,23 @@
 
       <v-list density="compact" nav>
         <v-list-item
+          prepend-icon="mdi-home"
+          title="Home"
+          value="home"
+          to="/home"
+        >
+        </v-list-item>
+        <v-list-item
           prepend-icon="mdi-head-lightbulb"
           title="Authors"
           value="authors"
-          to="authors"
+          to="/authors"
         ></v-list-item>
         <v-list-item
           prepend-icon="mdi-book-open"
           title="Recipes"
           value="recipes"
-          to="recipes"
+          to="/recipes"
         ></v-list-item>
       </v-list>
     </v-navigation-drawer>
