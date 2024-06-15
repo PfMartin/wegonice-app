@@ -6,6 +6,7 @@
           prepend-icon="mdi-account-circle"
           subtitle="email from store"
           title="User name from store"
+          :to="userLink"
         >
         </v-list-item>
       </v-list>
@@ -34,4 +35,10 @@
   </v-layout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const userId = '12345678'
+
+const userLink = computed(() => `/user/${userId}`)
+</script>
