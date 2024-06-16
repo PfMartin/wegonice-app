@@ -42,6 +42,8 @@
         ></v-list-item>
       </v-list>
 
+      <!-- TODO: Move to bottom of the navbar -->
+
       <v-list>
         <v-list-item
           prepend-icon="mdi-logout"
