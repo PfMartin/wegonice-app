@@ -47,7 +47,7 @@
           prepend-icon="mdi-logout"
           title="Logout"
           value="logout"
-          to="/login"
+          to="/auth/login"
         ></v-list-item>
       </v-list>
     </div>
