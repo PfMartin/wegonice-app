@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar-nav-icon @click="toggleDrawer"></v-app-bar-nav-icon>
+  <v-app-bar-nav-icon v-if="xs" @click="toggleDrawer"></v-app-bar-nav-icon>
   <v-navigation-drawer
     :permanent="!xs"
     :temporary="xs"
@@ -19,22 +19,38 @@
 
     <v-divider></v-divider>
 
-    <v-list density="compact" nav>
-      <v-list-item prepend-icon="mdi-home" title="Home" value="home" to="/home">
-      </v-list-item>
-      <v-list-item
-        prepend-icon="mdi-head-lightbulb"
-        title="Authors"
-        value="authors"
-        to="/authors"
-      ></v-list-item>
-      <v-list-item
-        prepend-icon="mdi-book-open"
-        title="Recipes"
-        value="recipes"
-        to="/recipes"
-      ></v-list-item>
-    </v-list>
+    <div class="d-flex flex-column justify-space-between">
+      <v-list density="compact" nav>
+        <v-list-item
+          prepend-icon="mdi-home"
+          title="Home"
+          value="home"
+          to="/home"
+        >
+        </v-list-item>
+        <v-list-item
+          prepend-icon="mdi-head-lightbulb"
+          title="Authors"
+          value="authors"
+          to="/authors"
+        ></v-list-item>
+        <v-list-item
+          prepend-icon="mdi-book-open"
+          title="Recipes"
+          value="recipes"
+          to="/recipes"
+        ></v-list-item>
+      </v-list>
+
+      <v-list>
+        <v-list-item
+          prepend-icon="mdi-logout"
+          title="Logout"
+          value="logout"
+          to="/login"
+        ></v-list-item>
+      </v-list>
+    </div>
   </v-navigation-drawer>
 </template>
 
