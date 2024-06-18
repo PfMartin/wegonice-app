@@ -1,25 +1,24 @@
 <template>
-  <v-app-bar-nav-icon v-if="xs" @click="toggleDrawer"></v-app-bar-nav-icon>
+  <!-- <v-app-bar-nav-icon v-if="xs" @click="toggleDrawer"></v-app-bar-nav-icon> -->
   <v-navigation-drawer
+    style="height: 100%"
     :permanent="!xs"
     :temporary="xs"
     :rail="!xs"
     :expand-on-hover="!xs"
     v-model="drawer"
   >
-    <v-list>
-      <v-list-item
-        prepend-icon="mdi-account-circle"
-        subtitle="email from store"
-        title="User name from store"
-        :to="userLink"
-      >
-      </v-list-item>
-    </v-list>
+    <div class="d-flex flex-column justify-space-between h-100">
+      <v-list>
+        <v-list-item
+          prepend-icon="mdi-account-circle"
+          subtitle="email from store"
+          title="User name from store"
+          :to="userLink"
+        >
+        </v-list-item>
+      </v-list>
 
-    <v-divider></v-divider>
-
-    <div class="d-flex flex-column justify-space-between">
       <v-list density="compact" nav>
         <v-list-item
           prepend-icon="mdi-home"
@@ -41,8 +40,6 @@
           to="/recipes"
         ></v-list-item>
       </v-list>
-
-      <!-- TODO: Move to bottom of the navbar -->
 
       <v-list>
         <v-list-item
