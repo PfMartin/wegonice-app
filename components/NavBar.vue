@@ -1,17 +1,33 @@
 <template>
-  <!-- <v-app-bar-nav-icon v-if="xs" @click="toggleDrawer"></v-app-bar-nav-icon> -->
-  <v-navigation-drawer
-    style="height: 100%"
-    :permanent="!xs"
-    :temporary="xs"
-    :rail="!xs"
-    :expand-on-hover="!xs"
-    v-model="drawer"
-  >
+  <v-bottom-navigation v-if="xs">
+    <div>
+      <v-btn class="xs-nav-item" icon :to="userLink">
+        <v-icon>{{ icon.user }}</v-icon>
+      </v-btn>
+    </div>
+    <div>
+      <v-btn class="xs-nav-item" icon :to="route.home">
+        <v-icon>{{ icon.home }}</v-icon>
+      </v-btn>
+      <v-btn class="xs-nav-item" icon :to="route.authors">
+        <v-icon>{{ icon.authors }}</v-icon>
+      </v-btn>
+      <v-btn class="xs-nav-item" icon :to="route.recipes">
+        <v-icon>{{ icon.recipes }}</v-icon>
+      </v-btn>
+    </div>
+    <div>
+      <v-btn class="xs-nav-item" icon :to="route.login">
+        <v-icon>{{ icon.logout }}</v-icon>
+      </v-btn>
+    </div>
+  </v-bottom-navigation>
+
+  <v-navigation-drawer v-else permanent rail expand-on-hover>
     <div class="d-flex flex-column justify-space-between h-100">
       <v-list>
         <v-list-item
-          prepend-icon="mdi-account-circle"
+          :prepend-icon="icon.user"
           subtitle="email from store"
           title="User name from store"
           :to="userLink"
@@ -21,32 +37,32 @@
 
       <v-list density="compact" nav>
         <v-list-item
-          prepend-icon="mdi-home"
+          :prepend-icon="icon.home"
           title="Home"
           value="home"
-          to="/home"
+          :to="route.home"
         >
         </v-list-item>
         <v-list-item
-          prepend-icon="mdi-head-lightbulb"
+          :prepend-icon="icon.authors"
           title="Authors"
           value="authors"
-          to="/authors"
+          :to="route.authors"
         ></v-list-item>
         <v-list-item
-          prepend-icon="mdi-book-open"
+          :prepend-icon="icon.recipes"
           title="Recipes"
           value="recipes"
-          to="/recipes"
+          :to="route.recipes"
         ></v-list-item>
       </v-list>
 
       <v-list>
         <v-list-item
-          prepend-icon="mdi-logout"
+          :prepend-icon="icon.logout"
           title="Logout"
           value="logout"
-          to="/auth/login"
+          :to="route.login"
         ></v-list-item>
       </v-list>
     </div>
@@ -57,12 +73,34 @@
 import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 
-const userId = '12345678'
+enum icon {
+  user = 'mdi-account-circle',
+  home = 'mdi-home',
+  authors = 'mdi-head-lightbulb',
+  recipes = 'mdi-book-open',
+  logout = 'mdi-logout',
+}
+
+enum route {
+  home = '/home',
+  authors = '/authors',
+  recipes = '/recipes',
+  login = '/auth/login',
+}
+
+const userId = '12345678' // TODO: use user id from store
 const userLink = computed(() => `/user/${userId}`)
 
 const { xs } = useDisplay()
-
-const drawer = ref(false)
-
-const toggleDrawer = () => (drawer.value = !drawer.value)
 </script>
+
+<style scoped lang="scss">
+.xs-nav-item {
+  font-size: inherit;
+  height: 100%;
+  text-transform: none;
+  transition: inherit;
+  width: auto;
+  border-radius: 0;
+}
+</style>
