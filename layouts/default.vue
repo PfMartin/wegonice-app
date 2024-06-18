@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <header>
-      <nav>
-        <li><NuxtLink to="/home">Home</NuxtLink></li>
-      </nav>
-    </header>
-    <slot />
-  </div>
+  <v-layout>
+    <nav-bar />
+    <v-main>
+      <slot></slot>
+    </v-main>
+  </v-layout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavBar from '../components/NavBar.vue'
+</script>
