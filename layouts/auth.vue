@@ -2,8 +2,7 @@
   <v-layout>
     <div class="w-100 h-screen d-flex flex-column justify-space-between">
       <v-container>
-        <p>Authenticate or register first</p>
-        <slot />
+        <slot></slot>
       </v-container>
 
       <div>
