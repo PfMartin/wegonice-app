@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 abs_script_dir="$(dirname "$(readlink -f "$0")")"
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)

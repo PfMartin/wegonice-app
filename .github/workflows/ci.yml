@@ -9,6 +9,15 @@ on:
     tags: '*'
 
 jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Prettier check
+        run: npm run prettier:check
+
   set-version:
     runs-on: ubuntu-latest
     steps:
