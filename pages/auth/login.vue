@@ -16,6 +16,11 @@
       />
       <v-btn type="submit" block :disabled="!isFormValid">Login</v-btn>
     </v-form>
+    <v-row class="mt-1 pa-3 d-flex justify-end">
+      <span>Don't have an account yet?</span>&nbsp;<NuxtLink to="/auth/register"
+        >Register now.</NuxtLink
+      ></v-row
+    >
   </v-sheet>
 </template>
 
