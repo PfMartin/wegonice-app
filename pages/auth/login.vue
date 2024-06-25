@@ -8,10 +8,16 @@
       @submit="login"
       v-model="isFormValid"
     >
-      <v-text-field v-model="email" :rules="emailRules" label="Email" />
+      <v-text-field
+        v-model="email"
+        type="email"
+        :rules="emailRules"
+        label="Email"
+      />
       <v-text-field
         v-model="password"
         :rules="passwordRules"
+        type="password"
         label="Password"
       />
       <v-btn type="submit" block :disabled="!isFormValid">Login</v-btn>
@@ -25,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+import { loginUser } from '~/apis/wegonice-api'
+
 definePageMeta({
   title: 'Login',
   layout: 'auth',
@@ -44,11 +52,11 @@ const passwordRules = [
     value.length > 6 || 'Password must be longer than 6 characters',
 ]
 
-const login = () => {
+const login = async () => {
   if (!isFormValid.value) {
     return
   }
-  console.warn(email.value)
-  console.warn(password.value)
+
+  await loginUser(email.value, password.value)
 }
 </script>
