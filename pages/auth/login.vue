@@ -49,7 +49,7 @@ const emailRules = [
 const password = ref('')
 const passwordRules = [
   (value: string) =>
-    value.length > 6 || 'Password must be longer than 6 characters',
+    value.length > 2 || 'Password must be longer than 6 characters',
 ]
 
 const login = async () => {

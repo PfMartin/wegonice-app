@@ -19,5 +19,10 @@ export const loginUser = async (email: string, password: string) => {
     body: credentials,
   })
 
-  console.warn(res)
+  if (!res.ok) {
+    console.warn('An error occured during login')
+    return
+  }
+
+  console.warn('Successfully logged in: ', res.body)
 }
